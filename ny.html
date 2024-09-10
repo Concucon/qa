@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Forms</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .form1 {
+            background-image: url('https://i.imgur.com/FCMLxPm.jpeg');
+        }
+        .form2 {
+            background-image: url('https://i.imgur.com/zKHno8t.jpeg');
+            display: none;
+        }
+        .form3 {
+            background-image: url('https://i.imgur.com/wKrRVYO.jpeg');
+            display: none;
+            background-size: cover;
+            background-position: center;
+        }
+        .form-content {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .form2 .form-content {
+            color: hotpink;
+        }
+        .form3 .form-content {
+            color: pink; /* Màu chữ cho form 3 */
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .btn-move {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="form1" class="form-container form1">
+        <div class="form-content">
+            <p>em bé có iu anh hok</p>
+            <div class="button-container">
+                <button id="btn-yes" onclick="showForm2()">Có</button>
+                <button id="btn-no" class="btn-move" onclick="moveButton()">Không</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="form2" class="form-container form2">
+        <div class="form-content">
+            <p>em bé iu anh như nào thí</p>
+            <div class="button-container">
+                <button id="btn-less" class="btn-move" onclick="moveButton()">Ít</button>
+                <button id="btn-many" class="btn-move" onclick="moveButton()">Nhìu</button>
+                <button id="btn-much" onclick="showForm3()">Rất là nhìu</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="form3" class="form-container form3">
+        <div class="form-content">
+            <p>Hì hì yêu em bé của anh quá trờiiii yêu em bé của anh số 1 thế giớiii lunnnnnnnnnnnnnnnnnnnnn❤️🐥</p>
+        </div>
+    </div>
+
+    <script>
+        function showForm2() {
+            document.getElementById('form1').style.display = 'none';
+            document.getElementById('form2').style.display = 'flex';
+        }
+
+        function showForm3() {
+            document.getElementById('form2').style.display = 'none';
+            document.getElementById('form3').style.display = 'flex';
+        }
+
+        function moveButton() {
+            const buttons = document.querySelectorAll('.btn-move');
+            buttons.forEach(button => {
+                button.style.position = 'absolute';
+                button.style.top = Math.random() * 90 + '%';
+                button.style.left = Math.random() * 90 + '%';
+            });
+        }
+    </script>
+</body>
+</html>
